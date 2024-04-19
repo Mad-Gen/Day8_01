@@ -39,7 +39,7 @@ public class Main {
     //
     // 子クラスである Lion で同じメソッドを呼び出すと...
     // オーバーライドによって、Cat.speak() の内容が書き換えられ、Lion クラス用に再定義(カスタマイズ)されています。
-    lion.speak(); 
+    lion.speak();  
     
   }
 }
