@@ -52,4 +52,33 @@ public class Cat {
   public void speak() {
     System.out.println("うな～");
   }
+  
+  
+  /**
+   * 子クラスには秘密の処理
+   */
+  private void secretToChild() {
+    System.out.println("Cat : 子クラスには秘密です。");
+  }
+  
+  /**
+   * 子クラスには見せてあげる、オーバーライドさせてあげる処理
+   */
+  protected void secretToOthers() {
+    System.out.println("Cat : 子クラスからも見えるし、継承できます。");
+  }
+  
+  /**
+   * すべての人に公開し、子クラスからもオーバーライド可能な処理
+   */
+  public void openToOthers() {
+    System.out.println("Cat : すべての人に公開し、子クラスからも継承できます。");
+  }
+  
+  /**
+   * すべての人に公開されますが、子クラスは継承できません。
+   */
+  public final void openToOthersButNotInheritable() {
+    System.out.println("Cat : すべての人に公開しますが、子クラスは継承できません。");
+  }
 }

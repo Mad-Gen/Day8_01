@@ -2,6 +2,7 @@ package exsample;
 
 import animal.Cat;
 import animal.Lion;
+import animal.Tiger;
 
 /**
  * Main.java
@@ -40,6 +41,50 @@ public class Main {
     // 子クラスである Lion で同じメソッドを呼び出すと...
     // オーバーライドによって、Cat.speak() の内容が書き換えられ、Lion クラス用に再定義(カスタマイズ)されています。
     lion.speak();  
+    
+    //
+    System.out.println();
+    
+    // private protected public ... などのメソッドの動作を確認します。
+    System.out.println("Lion クラスから super を使ってメソッドを呼び出します。");
+    lion.superCallingTest();
+    System.out.println();
+    //
+    System.out.println("Lion クラスから this を使ってメソッドを呼び出します。");
+    lion.thisCallingTest();
+    System.out.println();
+    
+    
+    
+    // ■ すべてのクラスは暗黙の内に Object クラスを継承している!!
+    //
+    // Tiger クラスの中身は空っぽなのに... 
+    Tiger tiger1 = new Tiger();
+    Tiger tiger2 = new Tiger();
+    
+    // 次のようにできます。
+    System.out.println("tiger1 = " + tiger1.toString());
+    if(tiger1.equals(tiger2)) {
+      System.out.println("tiger1 と tiger2 は同じです。");
+    }else{
+      System.out.println("tiger1 と tiger2 は違います。");
+    }
+    System.out.println();
+    
+    // 実はすべてのクラスは暗黙の内に Object クラスを継承しているのでこのようにできます。
+    Object obj1 = new Object();
+    Object obj2 = new Object();
+    System.out.println("obj1 = " + obj1);
+    if(obj1.equals(obj2)) {
+      System.out.println("obj1 と obj2 は同じです。");
+    }else{
+      System.out.println("obj1 と obj2 は違います。");
+    }
+    System.out.println();
+    
+    // 意識しませんでしたが...
+    // toString(), equals() は Object クラスのメソッドを使用したり、オーバーライドしていたことになります。
+    
     
   }
 }
