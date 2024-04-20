@@ -20,32 +20,51 @@ public class Lion extends Cat {
   /**
    * 発話
    */
-  @Override
+  @Override // 親クラスのメソッドを継承していることを示す「アノテーション」飛ばれるコードです。
   public void speak() {
+    // Eclipseではオーバーライドされたメソッドを宣言している行に、緑色の△マーカーが付きます。
     System.out.println("ガオー");
   }
   
+  // ***********************************************************************
+  // これより下はテスト用のコードです。
+  // private protected [アクセス修飾子なし] public の動作はメソッドも変数も同じです。 
+  // *********************************************************************** 
   
   /**
    * 子クラスには秘密の処理
    * 親クラスと同じ名前のメソッドですが、全くの別物です。
    */
   private void secretToChild() {
-    System.out.println("Lion : secretToChild");
+    System.out.println("Lion : secretToChild が呼び出された");
+  }
+  
+  /**
+   * 同じパッケージであれば公開してあげる、オーバーライド・継承も可能
+   */
+  @Override
+  void openToOtherPackages() {
+    System.out.println("Lion : openToOtherPackages が呼び出された");
   }
 
   /**
-   * 子クラスには見せてあげる、オーバーライドさせてあげる処理
+   * 同じパッケージであれば公開してあげる、なお他のパッケージでも継承している子クラスはアクセス可能
    */
-  protected void secretToOthers() {
-    System.out.println("Lion : secretToOthers");
+  @Override
+  protected void secretToOtherPackagesButInheritance() {
+    System.out.println("Lion : secretToOtherPackagesButInheritance が呼び出された");
   }
 
   /**
-   * すべての人に公開し、子クラスからもオーバーライド可能な処理
+   * すべての人に公開し、子クラスからもオーバーライド・継承可能
    */
-  public void openToOthers() {
-    System.out.println("Lion : openToOthers");
+  @Override
+  public int openToOthers(int value, String str) {
+    // 引数、戻り値のあるメソッドも継承可能です。
+    // 継承するときは、引数、メソッド名、戻り値を変えずにメソッドを宣言します、
+    
+    System.out.println("Lion : openToOthers が呼び出された");    
+    return 0;
   }
 
   ///**
@@ -53,7 +72,7 @@ public class Lion extends Cat {
   // * コメント化を外すとエラーになります。
   // */
   //public final void openToOthersButNotInheritable() {
-  //  System.out.println("ライオンクラス : openToOthersButNotInheritable");
+  //  System.out.println("Lion : openToOthersButNotInheritable");
   //}
   
   /**
@@ -61,8 +80,9 @@ public class Lion extends Cat {
    */
   public void superCallingTest() {
     //super.secretToChild(); // 親クラスで private 宣言されているため呼び出せません。
-    super.secretToOthers();
-    super.openToOthers();
+    super.openToOtherPackages();
+    super.secretToOtherPackagesButInheritance();
+    super.openToOthers(100, "Test");
     super.openToOthersButNotInheritable();
   }
   
@@ -71,8 +91,9 @@ public class Lion extends Cat {
    */
   public void thisCallingTest() {
     this.secretToChild(); // このクラスに private 宣言されたメソッドは呼び出せます。
-    this.secretToOthers();
-    this.openToOthers();
+    this.openToOtherPackages();
+    this.secretToOtherPackagesButInheritance();
+    this.openToOthers(100, "Test");
     this.openToOthersButNotInheritable();
   }
 }
