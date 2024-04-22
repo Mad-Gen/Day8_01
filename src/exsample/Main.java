@@ -80,7 +80,7 @@ public class Main {
     // Lion クラスには setSex(), getSex()が定義されていませんが、親クラスである Cat クラスに定義されているので
     // そのデータ(変数)や機能(メソッド)を呼び出すことができます。
     lion.setSex(Cat.SEX.FEMALE);
-    System.out.println("Lion クラスの " + cat.getName() + " は　" + (cat.getSex() == Cat.SEX.MALE ? "オス" : "メス") + " です");
+    System.out.println("Lion クラスの " + lion.getName() + " は　" + (lion.getSex() == Cat.SEX.MALE ? "オス" : "メス") + " です");
     
     
     
