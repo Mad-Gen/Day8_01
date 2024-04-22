@@ -54,6 +54,44 @@ public class Cat {
   }
   
   
+//  /**
+//   * 「狩り」の振る舞い
+//   *  
+//   */
+//  public void hunting() {
+//    // 
+//    int countTargetLost = 0; 
+//    for(;;) {
+//      // 
+//      if(targetSearchAndLockOn()){
+//        // 
+//        int nextPlace = getNextPlace();
+//        if(nextPlace) {
+//          if(isLikeWater()) {
+//            // 水の中を突っ切って追跡
+//          }else{
+//            // 水をよけて追跡
+//          }
+//        }
+//      }else{
+//        // 獲物の探索とロックオンに5回
+//        if(countTargetLost > 5){
+//          break;
+//        }
+//        countTargetLost++;
+//      }
+//    }
+//  }
+  
+  /**
+   * 子クラスで継承して、その動物にあった値を返します。
+   * @return
+   */
+  protected boolean isLikeWater() {
+    return false;
+  }
+  
+  
   //***********************************************************************
   // これより下はテスト用のコードです。
   // private protected [アクセス修飾子なし] public の動作はメソッドにつけた時も、変数につけた時も同じです。 

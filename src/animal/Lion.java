@@ -44,6 +44,29 @@ public class Lion extends Cat {
     return tategami;
   }
   
+//  /**
+//   * こんな書き方もできます。
+//   */
+//  @Override
+//  public void hunting() {
+//    groupHunting();
+//  }
+//  
+//  /**
+//   * 
+//   */
+//  private void groupHunting() {
+//    // グループで狩りをする場合の処理
+//  }
+  
+  /**
+   * 子クラスで継承して、その動物にあった値を返します。
+   * @return
+   */
+  protected boolean isLikeWater() {
+    return false;
+  }
+  
   // ***********************************************************************
   // これより下はテスト用のコードです。
   // private protected [アクセス修飾子なし] public の動作はメソッドにつけた時も、変数につけた時も同じです。 
