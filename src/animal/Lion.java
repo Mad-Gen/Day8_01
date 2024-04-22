@@ -7,13 +7,15 @@ package animal;
 // Cat クラスからその機能や特徴を継承する時には extends Cat と書きます。
 // extends に続きに書けるのは 一つのクラスだけです。
 public class Lion extends Cat {
+  
+  private boolean tategami = true; // たてがみの情報
 
   /**
    * コンストラクタ
    * @param name
    */
   public Lion(String name) {
-    // Lion クラスのコンストラクタから Cat クラスのコンストラクタを呼び出して名前変数の設定をすることができます。
+    // Lion クラスのコンストラクタから Cat クラスのコンストラクタを呼び出して名前変数の設定をする必要があります。
     super(name);
   }
   
@@ -26,9 +28,25 @@ public class Lion extends Cat {
     System.out.println("ガオー");
   }
   
+  /**
+   * 立派なたてがみがあるかどうかを設定
+   * @param value
+   */
+  public void setExistTategami(boolean value) {
+    this.tategami = value;
+  }
+  
+  /**
+   * 立派なたてがみがあるかないかを取得
+   * @return
+   */
+  public boolean isExistTategami() {
+    return tategami;
+  }
+  
   // ***********************************************************************
   // これより下はテスト用のコードです。
-  // private protected [アクセス修飾子なし] public の動作はメソッドも変数も同じです。 
+  // private protected [アクセス修飾子なし] public の動作はメソッドにつけた時も、変数につけた時も同じです。 
   // *********************************************************************** 
   
   /**
